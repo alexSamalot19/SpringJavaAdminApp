@@ -1,5 +1,6 @@
 package com.SamalotSpring.demo.student;
 
+import com.SamalotSpring.demo.exception.ApiRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,8 @@ public class StudentController {
 
     @GetMapping
     public List<Student> getAllStudents(){
-        throw new IllegalStateException("Cannot get all students");
+        throw new ApiRequestException("Cannot get all students (custom)");
+//        throw new IllegalStateException("");
 //        return studentService.getAllStudents();
     }
 
