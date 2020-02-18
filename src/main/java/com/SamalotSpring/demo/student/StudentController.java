@@ -4,6 +4,7 @@ import com.SamalotSpring.demo.exception.ApiRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.UUID;
 import java.util.List;
 
@@ -20,13 +21,11 @@ public class StudentController {
 
     @GetMapping
     public List<Student> getAllStudents(){
-        throw new ApiRequestException("Cannot get all students (custom)");
-//        throw new IllegalStateException("");
-//        return studentService.getAllStudents();
+        return studentService.getAllStudents();
     }
 
     @PostMapping
-    public void addNewStudent(@RequestBody Student student) {
+    public void addNewStudent(@RequestBody @Valid Student student) {
         studentService.addNewStudent(student);
     }
 

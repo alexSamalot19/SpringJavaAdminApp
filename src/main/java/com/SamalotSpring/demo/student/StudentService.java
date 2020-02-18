@@ -29,8 +29,8 @@ public class StudentService {
 
     void addNewStudent(UUID studentId,Student student) {
         UUID newStudentID = Optional.ofNullable(studentId).orElse(UUID.randomUUID());
-
-        //Todo verify that emial is not taken
+        //Todo: Validate email
+        //Todo: verify that email is not taken
         studentDataAccessService.insertStudent(newStudentID, student);
 
     }
